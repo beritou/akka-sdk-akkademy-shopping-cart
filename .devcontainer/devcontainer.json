@@ -32,8 +32,8 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	// Use 'postCreateCommand' to verify Java installation.
-	"postCreateCommand": "java -version && mvn -version",
+	// Automatically install Akka CLI without user interaction.
+	"postCreateCommand": "curl -sL https://doc.akka.io/install-cli.sh | bash -s -- --prefix /tmp --yes && sudo mv /tmp/akka /usr/local/bin/akka && akka version && java -version && mvn -version",
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
